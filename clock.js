@@ -29,7 +29,7 @@ window.onload  = function() {
   console.log(clock.getTimeFormat("독일, 베를린", 2));
   console.log(clock.getTimeFormat("중국, 베이징", 8));
 }
-자냐
+
 /*function getTime() {
   const date = new Date();
   const hours = date.getHours();
