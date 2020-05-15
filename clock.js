@@ -4,31 +4,50 @@ const clockContainer = document.querySelector(".js-clock"),
   clockTitle2 = clockContainer.querySelector("#America_NewYork");
   clockTitle3 = clockContainer.querySelector("#Germany_Berlin");
 
-var clock = {
-  standardDate : null,
-  init : function(){
-    var timezoneOffset = new Date().getTimezoneOffset()/60;  
-    var currentDate = new Date();
-    this.standardDate = new Date( currentDate.setHours(currentDate.getHours() + timezoneOffset) );
-  },
-  generateTime : function(offset){    
-    return new Date( this.standardDate.setHours(this.standardDate.getHours() + offset) );
-  },
-  getTimeFormat : function(nation, offset){
-    var date = this.generateTime(offset),
-        hours = date.getHours(),
-        minutes = date.getMinutes(),
-        seconds = date.getSeconds();  
-    return nation + " : "+ `${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-  }
-}
+  (function(){
 
-window.onload  = function() {
-  clock.init();
-  console.log(clock.getTimeFormat("한국, 서울", 9));
-  console.log(clock.getTimeFormat("독일, 베를린", 2));
-  console.log(clock.getTimeFormat("중국, 베이징", 8));
-}
+    // var nowDate = moment().tz("Asia/Seoul").format();
+    // console.log(nowDate);
+
+    // nowDate = new Date(nowDate);
+    // console.log(nowDate);
+
+    // document.getElementById('tz-test').innerHTML  = nowDate;
+
+    var a = moment.tz("2019-11-12 15:00" , "Asia/Seoul");
+    var b = moment.tz("2019-11-12 15:00" , "America/Toronto");
+
+    a.format();
+    b.format();
+    console.log(a.format());
+    console.log(b.format());
+
+
+// var clock = {
+//   standardDate : null,
+//   init : function(){
+//     var timezoneOffset = new Date().getTimezoneOffset()/60;  
+//     var currentDate = new Date();
+//     this.standardDate = new Date( currentDate.setHours(currentDate.getHours() + timezoneOffset) );
+//   },
+//   generateTime : function(offset){    
+//     return new Date( this.standardDate.setHours(this.standardDate.getHours() + offset) );
+//   },
+//   getTimeFormat : function(nation, offset){
+//     var date = this.generateTime(offset),
+//         hours = date.getHours(),
+//         minutes = date.getMinutes(),
+//         seconds = date.getSeconds();  
+//     return nation + " : "+ `${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+//   }
+// }
+
+// window.onload  = function() {
+//   clock.init();
+//   console.log(clock.getTimeFormat("한국, 서울", 9));
+//   console.log(clock.getTimeFormat("독일, 베를린", 2));
+//   console.log(clock.getTimeFormat("중국, 베이징", 8));
+// }
 
 /*function getTime() {
   const date = new Date();
